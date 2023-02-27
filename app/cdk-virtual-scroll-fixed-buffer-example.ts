@@ -22,10 +22,10 @@ import { tap } from 'rxjs/operators';
 export class CdkVirtualScrollFixedBufferExample
   implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit
 {
-  @ViewChild('num1') viewPort1!: CdkVirtualScrollViewport;
-  @ViewChild('num2') viewPort2!: CdkVirtualScrollViewport;
-  @ViewChild('num3') viewPort3!: CdkVirtualScrollViewport;
-  @ViewChild('num4') viewPort4!: CdkVirtualScrollViewport;
+  @ViewChild('onInit') viewPort1!: CdkVirtualScrollViewport;
+  @ViewChild('afterContentInit') viewPort2!: CdkVirtualScrollViewport;
+  @ViewChild('afterViewInit') viewPort3!: CdkVirtualScrollViewport;
+  @ViewChild('afterViewChecked') viewPort4!: CdkVirtualScrollViewport;
   items = Array.from({ length: 10000 }).map((_, i) => `Item #${i}`);
   private scrollIndex: number = 0;
 

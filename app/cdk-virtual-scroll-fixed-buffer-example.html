@@ -5,12 +5,12 @@
 
 Number 1
 <cdk-virtual-scroll-viewport
-  #num1
+  #onInit
   itemSize="50"
   minBufferPx="200"
   maxBufferPx="400"
   class="example-viewport"
-  id="num1"
+  id="onInit"
 >
   <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
 </cdk-virtual-scroll-viewport>
@@ -18,12 +18,12 @@ Number 1
 
 Number 2
 <cdk-virtual-scroll-viewport
-  #num2
+  #afterContentInit
   itemSize="50"
   minBufferPx="200"
   maxBufferPx="400"
   class="example-viewport"
-  id="num2"
+  id="afterContentInit"
 >
   <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
 </cdk-virtual-scroll-viewport>
@@ -31,12 +31,12 @@ Number 2
 
 Number 3
 <cdk-virtual-scroll-viewport
-  #num3
+  #afterViewInit
   itemSize="50"
   minBufferPx="200"
   maxBufferPx="400"
   class="example-viewport"
-  id="num3"
+  id="afterViewInit"
 >
   <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
 </cdk-virtual-scroll-viewport>
@@ -44,12 +44,12 @@ Number 3
 
 Number 4
 <cdk-virtual-scroll-viewport
-  #num4
+  #afterViewChecked
   itemSize="50"
   minBufferPx="200"
   maxBufferPx="400"
   class="example-viewport"
-  id="num4"
+  id="afterViewChecked"
 >
   <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
 </cdk-virtual-scroll-viewport>
