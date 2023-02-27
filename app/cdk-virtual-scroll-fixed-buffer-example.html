@@ -1,0 +1,52 @@
+<button (click)="scroll(0)">Scroll start</button>
+<button (click)="scroll(5000)">Scroll mid</button>
+<button (click)="scroll(10000)">Scroll end</button>
+<br />
+
+Number 1
+<cdk-virtual-scroll-viewport
+  #num1
+  itemSize="50"
+  minBufferPx="200"
+  maxBufferPx="400"
+  class="example-viewport"
+>
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+<br />
+
+Number 2
+<cdk-virtual-scroll-viewport
+  #num2
+  itemSize="50"
+  minBufferPx="200"
+  maxBufferPx="400"
+  class="example-viewport"
+>
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+<br />
+
+Number 3
+<cdk-virtual-scroll-viewport
+  #num3
+  itemSize="50"
+  minBufferPx="200"
+  maxBufferPx="400"
+  class="example-viewport"
+>
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+<br />
+
+Number 4
+<cdk-virtual-scroll-viewport
+  #num4
+  itemSize="50"
+  minBufferPx="200"
+  maxBufferPx="400"
+  class="example-viewport"
+>
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>
+<br />
