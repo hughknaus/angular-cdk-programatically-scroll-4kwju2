@@ -72,20 +72,28 @@ export class CdkVirtualScrollFixedBufferExample
   }
 
   ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked::scroll to index: ', this.scrollIndex);
+    console.log(`ngAfterViewChecked`);
     this.scroll(this.viewPort4, this.scrollIndex); // ONLY WORKS HERE BUT IS CALLED MULTIPLE TIMES AND DOES NOT WORK ON FIRST TIME CALLED
   }
 
   scroll(viewPort: CdkVirtualScrollViewport, scrollIndex: number) {
-    this.zone.runTask(() => {
-      console.log(
-        `scrolling viewPort ${viewPort.elementRef.nativeElement.getAttribute(
-          'id'
-        )} to index: `,
-        scrollIndex
-      );
-      viewPort.scrollToIndex(scrollIndex, 'auto');
-    });
+    //this.zone.runTask(() => {  // Test inside and outside of an NgZone -- no difference
+    console.log(
+      ` - scrolling viewPort ${viewPort.elementRef.nativeElement.getAttribute(
+        'id'
+      )} to index: `,
+      scrollIndex
+    );
+    viewPort.scrollToIndex(scrollIndex, 'auto');
+    //});
+  }
+
+  scrollAllViewPorts(scrollIndex: number) {
+    console.log(`scrollAllViewPorts::buttonClicked`);
+    this.scroll(this.viewPort1, scrollIndex); // WORKS
+    this.scroll(this.viewPort2, scrollIndex); // WORKS
+    this.scroll(this.viewPort3, scrollIndex); // WORKS
+    this.scroll(this.viewPort4, scrollIndex); // WORKS BUT IS OVERRIDDEN BY ngAfterViewChecked
   }
 }
 
