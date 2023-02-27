@@ -28,7 +28,6 @@ export class CdkVirtualScrollFixedBufferExample
   @ViewChild('num4') viewPort4!: CdkVirtualScrollViewport;
   items = Array.from({ length: 10000 }).map((_, i) => `Item #${i}`);
   private scrollIndex: number = 0;
-  private isScrollSuccessful: boolean = false;
 
   constructor(private el: ElementRef, private zone: NgZone) {}
 
@@ -38,6 +37,24 @@ export class CdkVirtualScrollFixedBufferExample
     this.viewPort1.elementScrolled().pipe(
       tap((val) => {
         console.log(`viewPort1 scrolled: `, val);
+      })
+    );
+
+    this.viewPort2.elementScrolled().pipe(
+      tap((val) => {
+        console.log(`viewPort2 scrolled: `, val);
+      })
+    );
+
+    this.viewPort3.elementScrolled().pipe(
+      tap((val) => {
+        console.log(`viewPort3 scrolled: `, val);
+      })
+    );
+
+    this.viewPort4.elementScrolled().pipe(
+      tap((val) => {
+        console.log(`viewPort4 scrolled: `, val);
       })
     );
 
@@ -59,9 +76,14 @@ export class CdkVirtualScrollFixedBufferExample
     this.scroll(this.viewPort4, this.scrollIndex); // ONLY WORKS HERE BUT IS CALLED MULTIPLE TIMES AND DOES NOT WORK ON FIRST TIME CALLED
   }
 
-  scroll(viewPort, scrollIndex: number) {
+  scroll(viewPort: CdkVirtualScrollViewport, scrollIndex: number) {
     this.zone.runTask(() => {
-      console.log(`scrolling viewPort ${viewPort.Name} to index: `, scrollIndex);
+      console.log(
+        `scrolling viewPort ${viewPort.elementRef.nativeElement.getAttribute(
+          'id'
+        )} to index: `,
+        scrollIndex
+      );
       viewPort.scrollToIndex(scrollIndex, 'auto');
     });
   }
